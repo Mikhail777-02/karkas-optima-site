@@ -1,0 +1,187 @@
+/* ===== Каркас Оптима: слой оформления v3 =====
+   Не меняет разметку и фоны секций. Только шрифты, размеры, отступы, таблицы, оттенок синего.
+   P = html:root:root:root:root[data-ok="on"] x3 (чтобы перебить прежние правила с !important) */
+
+/* ---------- Наборы значений ---------- */
+html:root:root:root{
+  --ok-display:'Onest','Inter',system-ui,sans-serif;
+  --ok-body:'Onest','Inter',system-ui,sans-serif;
+  --ok-hw:500; --ok-ls:-.03em;
+  --ok-h1:clamp(32px,3.9vw,54px); --ok-h2:clamp(25px,2.7vw,36px); --ok-h3:clamp(17px,1.4vw,20px);
+  --ok-lh1:1.05;
+  --ok-blue:#3F5B87; --ok-blue-deep:#2E4569; --ok-blue-soft:#E9EEF5; --ok-blue-glow:rgba(63,91,135,.22);
+  --ok-sec:clamp(52px,6.4vw,96px); --ok-mt:clamp(22px,2.4vw,34px); --ok-gap:clamp(14px,1.5vw,20px);
+  --ok-pad:clamp(16px,1.5vw,22px); --ok-hero-pad:clamp(40px,4.6vw,72px);
+  --ok-ratio:3/2; --ok-hero-w:94%;
+  --link:var(--ok-blue)!important; --accent:var(--ok-blue)!important; --blue:var(--ok-blue)!important; --blue-deep:var(--ok-blue-deep)!important; --blue-soft:var(--ok-blue-soft)!important;
+  --display:var(--ok-display)!important; --body:var(--ok-body)!important; --mono:var(--ok-body)!important;
+}
+/* шрифты */
+/* синий */
+/* расстояния между этажами */
+/* размер фото */
+
+/* ---------- Выделение, фокус, полоса прокрутки ---------- */
+html:root:root:root ::selection{background:var(--ok-blue)!important;color:#fff!important}
+html:root:root:root #scroll-progress{background:var(--ok-blue)!important}
+html:root:root:root a:focus-visible,html:root:root:root button:focus-visible,html:root:root:root input:focus-visible,html:root:root:root .btn:focus-visible,html:root:root:root .chip:focus-visible,html:root:root:root .hdr-a:focus-visible,html:root:root:root .lnk:focus-visible,html:root:root:root .inp:focus-visible,html:root:root:root .cm-range:focus-visible{outline:2px solid var(--ok-blue)!important;outline-offset:3px!important;box-shadow:0 0 0 5px var(--ok-blue-glow)!important}
+
+/* ---------- Шрифты: общий ---------- */
+html:root:root:root body,html:root:root:root .body,html:root:root:root .small,html:root:root:root .lead,html:root:root:root .hdr,html:root:root:root .hdr-a,html:root:root:root .hdr-ph a,html:root:root:root .dd-p a,html:root:root:root .mm,html:root:root:root .btn,html:root:root:root .chip,html:root:root:root input,html:root:root:root select,html:root:root:root textarea,html:root:root:root button,html:root:root:root .fq p,html:root:root:root .st-p,html:root:root:root .rv p,html:root:root:root .lf-p,html:root:root:root .lf-ul,html:root:root:root .ftr,html:root:root:root .ck,html:root:root:root .sticky{font-family:var(--ok-body)!important}
+html:root:root:root .d,html:root:root:root .h1,html:root:root:root .h2,html:root:root:root .h3,html:root:root:root .card-t,html:root:root:root .st-t,html:root:root:root .fq h3,html:root:root:root .lf-h,html:root:root:root .lf-sh,html:root:root:root .cm-title,html:root:root:root .quote .d,html:root:root:root .task-t,html:root:root:root .hdr-name .d,html:root:root:root .mm-logo .d,html:root:root:root .pc .pc-h .d,html:root:root:root .pc .pc-hp{font-family:var(--ok-display)!important}
+html:root:root:root .m,html:root:root:root .eyebrow,html:root:root:root .lbl,html:root:root:root .st-n,html:root:root:root .tag,html:root:root:root .inc-l,html:root:root:root .pc-cols,html:root:root:root .dim,html:root:root:root .num,html:root:root:root .facts b,html:root:root:root .cm-price,html:root:root:root .pcard-price,html:root:root:root .tbl th,html:root:root:root .tbl td,html:root:root:root .pt-d th,html:root:root:root .pt-d td,html:root:root:root .pc .pc-r .m,html:root:root:root .cm-scale,html:root:root:root .scheme-cap,html:root:root:root .photo-empty{font-family:var(--ok-body)!important;font-variant-numeric:tabular-nums lining-nums!important}
+
+/* ---------- Заголовки: компактные и лёгкие ---------- */
+html:root:root:root .h1{font-size:var(--ok-h1)!important;line-height:var(--ok-lh1)!important;font-weight:var(--ok-hw)!important;letter-spacing:var(--ok-ls)!important;text-wrap:balance}
+html:root:root:root .h2{font-size:var(--ok-h2)!important;line-height:1.1!important;font-weight:var(--ok-hw)!important;letter-spacing:var(--ok-ls)!important;text-wrap:balance}
+html:root:root:root .card-t,html:root:root:root .st-t,html:root:root:root .grid-4.mt-40>.card .card-t{font-size:var(--ok-h3)!important;line-height:1.22!important;font-weight:var(--ok-hw)!important;letter-spacing:calc(var(--ok-ls)/2)!important}
+html:root:root:root .fq h3{font-size:clamp(17px,1.4vw,19px)!important;line-height:1.3!important;font-weight:var(--ok-hw)!important;letter-spacing:calc(var(--ok-ls)/2)!important}
+html:root:root:root .task-t{font-size:clamp(17px,1.4vw,19px)!important;font-weight:var(--ok-hw)!important;letter-spacing:calc(var(--ok-ls)/2)!important}
+html:root:root:root .lf-h{font-size:clamp(26px,2.7vw,36px)!important;line-height:1.1!important;font-weight:var(--ok-hw)!important;letter-spacing:var(--ok-ls)!important}
+html:root:root:root .quote .d{font-size:clamp(16px,1.35vw,19px)!important;line-height:1.5!important;font-weight:400!important;letter-spacing:0!important}
+html:root:root:root .hdr-name .d{font-size:17px!important;font-weight:600!important;letter-spacing:-.01em!important}
+html:root:root:root .lead{font-size:clamp(16px,1.2vw,19px)!important;line-height:1.55!important;font-weight:400!important}
+html:root:root:root .body{font-size:clamp(15px,1.02vw,16.5px)!important;line-height:1.62!important}
+html:root:root:root .body.big{font-size:clamp(16px,1.2vw,19px)!important;line-height:1.55!important}
+html:root:root:root .small{font-size:clamp(13.5px,.92vw,14.5px)!important;line-height:1.5!important}
+html:root:root:root .head-note{max-width:440px!important}
+html:root:root:root .facts b{font-size:clamp(20px,1.9vw,26px)!important;font-weight:var(--ok-hw)!important;letter-spacing:-.02em!important;line-height:1.15!important}
+html:root:root:root .cm-price{font-size:clamp(24px,2.2vw,30px)!important;font-weight:var(--ok-hw)!important;letter-spacing:-.02em!important}
+html:root:root:root .cm-out.dark .cm-title{font-size:17px!important;font-weight:var(--ok-hw)!important}
+
+/* ---------- Мелкие подписи ---------- */
+html:root:root:root .m{font-size:12.5px!important;line-height:1.4!important;font-weight:500!important;letter-spacing:.02em!important;color:#56626d!important}
+html:root:root:root .eyebrow{font-size:13px!important;line-height:1.4!important;font-weight:500!important;letter-spacing:.02em!important;text-transform:none!important}
+html:root:root:root .st-n,html:root:root:root .inc-l,html:root:root:root .lbl,html:root:root:root .pc-cols{font-size:12px!important;font-weight:500!important;letter-spacing:.03em!important}
+html:root:root:root .facts .m,html:root:root:root .inc-l,html:root:root:root .st-n,html:root:root:root .hdr-sub,html:root:root:root .scheme-cap span,html:root:root:root .pc-cols span,html:root:root:root .tbl th{text-transform:lowercase!important;display:inline-block}
+html:root:root:root .facts .m::first-letter,html:root:root:root .inc-l::first-letter,html:root:root:root .st-n::first-letter,html:root:root:root .hdr-sub::first-letter,html:root:root:root .scheme-cap span::first-letter,html:root:root:root .pc-cols span::first-letter,html:root:root:root .tbl th::first-letter{text-transform:uppercase!important}
+html:root:root:root .tbl th{display:table-cell!important}
+html:root:root:root .hdr-sub{font-size:11px!important;letter-spacing:.04em!important}
+html:root:root:root .tag{font-size:12px!important;background:var(--ok-blue-soft)!important;color:var(--ok-blue)!important;font-weight:500!important;letter-spacing:.01em!important}
+html:root:root:root .dim{font-size:12px!important;font-weight:500!important}
+
+/* ---------- Синий: спокойнее ---------- */
+html:root:root:root .btn{background:var(--ok-blue)!important;border-color:var(--ok-blue)!important;color:#fff!important;box-shadow:0 8px 20px var(--ok-blue-glow)!important;font-weight:500!important;letter-spacing:0!important;border-radius:11px!important}
+html:root:root:root .btn:hover{background:var(--ok-blue-deep)!important;border-color:var(--ok-blue-deep)!important;box-shadow:0 12px 26px var(--ok-blue-glow)!important}
+html:root:root:root .sticky .btn{background:var(--ok-blue)!important}
+html:root:root:root .hdr-logo svg,html:root:root:root .ftr-logo svg{stroke:var(--ok-blue)!important}
+html:root:root:root .hdr-a:hover,html:root:root:root .hdr-ph a:hover{color:var(--ok-blue)!important}
+html:root:root:root .eyebrow,html:root:root:root .hero .eyebrow,html:root:root:root .st-n,html:root:root:root .hero-rate,html:root:root:root .pt-a a,html:root:root:root .lnk,html:root:root:root .snow-t th.hl,html:root:root:root .cm-price,html:root:root:root .pc .pc-hp,html:root:root:root .pc-go,html:root:root:root .lf .lf-box a:not(.btn):not(.btn-o){color:var(--ok-blue)!important}
+html:root:root:root .hero .eyebrow:before,html:root:root:root .eyebrow:before,html:root:root:root .snow .eyebrow:before{background:var(--ok-blue)!important}
+html:root:root:root .hdr-logo svg,html:root:root:root .ftr-logo svg{background:var(--ok-blue)!important;stroke:#fff!important;filter:drop-shadow(0 4px 9px var(--ok-blue-glow))!important}
+html:root:root:root .snow-t td:nth-child(2){color:var(--ok-blue-deep)!important}
+html:root:root:root .lf-consent input:focus-visible{outline:2px solid var(--ok-blue)!important}
+html:root:root:root .hero-rate:hover,html:root:root:root .lnk:hover,html:root:root:root .pt-a a:hover{color:var(--ok-blue-deep)!important}
+html:root:root:root .st-dot{background:var(--ok-blue)!important}
+html:root:root:root .vid-play{background:var(--ok-blue)!important;box-shadow:0 12px 30px var(--ok-blue-glow)!important;width:64px!important;height:64px!important}
+html:root:root:root .quote{border-left-color:var(--ok-blue)!important}
+html:root:root:root .chip[aria-pressed="true"],html:root:root:root .chip:hover{background:var(--ok-blue)!important;border-color:var(--ok-blue)!important;color:#fff!important}
+html:root:root:root .lf-box .chip[aria-pressed="true"]{background:var(--ok-blue-soft)!important;border-color:var(--ok-blue)!important;color:var(--ok-blue-deep)!important}
+html:root:root:root .inp:focus,html:root:root:root .cm-range:focus{border-color:var(--ok-blue)!important;box-shadow:0 0 0 4px var(--ok-blue-glow)!important}
+html:root:root:root .pt-p{border-left:3px solid var(--ok-blue)!important;background:var(--ok-blue-soft)!important}
+html:root:root:root .pt-a a,html:root:root:root .lnk{font-weight:500!important}
+html:root:root:root .cm-range{accent-color:var(--ok-blue)}
+
+/* ---------- Расстояния между этажами и блоками ---------- */
+html:root:root:root .sec{padding-top:var(--ok-sec)!important;padding-bottom:var(--ok-sec)!important}
+html:root:root:root .lf{padding-top:var(--ok-sec)!important;padding-bottom:var(--ok-sec)!important}
+html:root:root:root .hero{padding-top:var(--ok-hero-pad)!important;padding-bottom:var(--ok-hero-pad)!important;min-height:0!important}
+html:root:root:root .head-row{gap:clamp(20px,3vw,44px)!important}
+html:root:root:root .mt-40{margin-top:var(--ok-mt)!important}
+html:root:root:root .grid-2,html:root:root:root .grid-3,html:root:root:root .grid-4,html:root:root:root .steps{gap:var(--ok-gap)!important}
+html:root:root:root .card-b,html:root:root:root .bu-b,html:root:root:root .rv{padding:var(--ok-pad)!important}
+html:root:root:root .st{padding:var(--ok-pad)!important}
+html:root:root:root .promise .pr{padding:var(--ok-pad)!important}
+html:root:root:root .card-b{display:flex;flex-direction:column;gap:6px}
+html:root:root:root .card-t,html:root:root:root .st-t,html:root:root:root .fq h3{margin:0!important}
+html:root:root:root .inc{margin-top:clamp(18px,2vw,28px)!important;gap:14px!important}
+html:root:root:root .inc>div{padding:14px 16px!important}
+html:root:root:root .inc .body{font-size:14px!important;line-height:1.5!important}
+html:root:root:root .faq-list .fq{padding-top:clamp(14px,1.4vw,18px)!important;padding-bottom:clamp(14px,1.4vw,18px)!important}
+html:root:root:root .fq p{margin-top:8px!important}
+html:root:root:root .rv p.body{font-size:14.5px!important;line-height:1.6!important}
+
+/* ---------- Фото: только размер ---------- */
+html:root:root:root .photo:not(.hero-ph){aspect-ratio:var(--ok-ratio)!important;height:auto!important;min-height:0!important}
+html:root:root:root .photo:not(.hero-ph) img{width:100%!important;height:100%!important;object-fit:cover!important}
+html:root:root:root .hero-pic{width:var(--ok-hero-w)!important;justify-self:center!important;margin-inline:auto!important}
+@media(max-width:720px){html:root:root:root .hero-pic{width:100%!important}}
+
+/* ---------- Таблицы: компактные ---------- */
+html:root:root:root .tbl,html:root:root:root .pt-d{width:100%!important;border-collapse:collapse!important;font-size:14px!important}
+html:root:root:root .pt-d{border-radius:14px!important;overflow:hidden!important}
+html:root:root:root .tbl th,html:root:root:root .pt-d th{padding:9px 14px!important;font-size:12px!important;font-weight:500!important;letter-spacing:.02em!important;text-transform:none!important;color:#5d6873!important;text-align:left!important;line-height:1.3!important;white-space:nowrap}
+html:root:root:root .tbl td,html:root:root:root .pt-d td{padding:9px 14px!important;font-size:14px!important;line-height:1.4!important;font-weight:400!important;color:#27313a!important;vertical-align:middle}
+html:root:root:root .tbl td b,html:root:root:root .pt-d td b{font-weight:600!important}
+html:root:root:root .pt-d tr{height:auto!important}
+html:root:root:root .pt-d td,html:root:root:root .pt-d tbody tr:first-child td{border-top:1px solid var(--line-2,#edeff1)}
+html:root:root:root .pt-d tr.g1 td{border-top:1px solid #dde3e8!important}
+html:root:root:root .pt-d .pt-sz{font-size:14.5px!important;font-weight:500!important;color:#1b242c!important}
+html:root:root:root .pt-d .pt-p b{font-size:clamp(16px,1.3vw,19px)!important;font-weight:var(--ok-hw)!important;letter-spacing:-.02em!important;color:#1b242c!important}
+html:root:root:root .pt-d .pt-p .small{font-size:12px!important;color:#66727d!important}
+html:root:root:root .pt-d .pt-a{text-align:right!important;width:56px}
+html:root:root:root .pt-d th:nth-child(1),html:root:root:root .pt-d td:nth-child(1){width:22%}
+html:root:root:root .pt-d th:nth-child(2),html:root:root:root .pt-d td:nth-child(2){width:18%}
+html:root:root:root .pt-d th:nth-child(3),html:root:root:root .pt-d td:nth-child(3){width:16%}
+html:root:root:root .pt-d th:nth-child(4){width:30%}
+html:root:root:root .pt-d .pt-a a{font-size:15px!important}
+html:root:root:root .snow-t td:first-child{color:#5d6873!important;font-weight:500!important;width:30%}
+html:root:root:root .snow-t th.hl{font-weight:600!important}
+html:root:root:root .pt-n{margin-top:10px!important}
+
+/* карточки цены для телефона */
+html:root:root:root .pt-m{gap:12px!important}
+html:root:root:root .pc{border-radius:14px!important}
+html:root:root:root .pc-h{padding:11px 14px!important}
+html:root:root:root .pc .pc-h .d{font-size:14px!important;font-weight:600!important;letter-spacing:0!important}
+html:root:root:root .pc .pc-hp{font-size:16px!important;font-weight:var(--ok-hw)!important;letter-spacing:-.01em!important}
+html:root:root:root .pc-cols{padding-left:14px!important;padding-right:14px!important;min-height:30px!important;text-transform:none!important}
+html:root:root:root .pc-r{min-height:42px!important;padding:0 14px!important}
+html:root:root:root .pc .pc-r .m{font-size:13.5px!important;font-weight:500!important;color:#27313a!important;letter-spacing:0!important}
+html:root:root:root .pc-f{padding:8px 14px!important;font-size:12.5px!important}
+
+/* калькулятор и форма */
+html:root:root:root .cm-in,html:root:root:root .cm-out.dark{padding:clamp(16px,1.6vw,22px)!important}
+html:root:root:root .cm-g{gap:8px!important}
+html:root:root:root .lf-box{padding:clamp(18px,1.8vw,26px)!important}
+
+/* ---------- Прочее ---------- */
+html:root:root:root .stand-bar .fsw{display:none!important}
+html:root:root:root .hdr-a{font-size:14.5px!important;font-weight:500!important;letter-spacing:0!important}
+html:root:root:root .card-meta{font-size:13px!important}
+html:root:root:root .pcard-price{font-size:clamp(17px,1.4vw,19px)!important;font-weight:var(--ok-hw)!important;letter-spacing:-.015em!important}
+html:root:root:root .pcard-price small{font-size:12.5px!important;font-weight:400!important}
+html:root:root:root .st-p{font-size:14.5px!important;line-height:1.58!important}
+
+
+
+/* плотность: плотнее (tight) */
+:root{--ok-sec:clamp(34px,4.4vw,62px);--ok-mt:clamp(16px,1.8vw,26px);--ok-gap:clamp(10px,1.1vw,14px);--ok-pad:clamp(14px,1.2vw,18px);--ok-hero-pad:clamp(28px,3.4vw,52px)}
+
+/* прайс: единый шрифт Onest */
+html:root:root:root .pt-d .pt-p b,
+html:root:root:root .pt-sz,
+html:root:root:root .pc .pc-hp,
+html:root:root:root .pc .pc-h .d{font-family:var(--ok-display)!important}
+html:root:root:root .pt-d .pt-p .small,
+html:root:root:root .pt-d td{font-family:var(--ok-body)!important}
+
+/* фикс растягивания карточек (белые полосы внизу) */
+html:root:root:root .grid-2,html:root:root:root .grid-3,html:root:root:root .grid-4{align-items:start!important}
+html:root:root:root .grid-2 .card,html:root:root:root .grid-3 .card,html:root:root:root .grid-4 .card{min-height:0!important;height:auto!important}
+html:root:root:root .card-b{flex-grow:0!important}
+
+/* Единый цвет текста списков 1–6 в блоках «Конструкция» */
+html:root:root:root .lg-t{color:#3d444b!important}html:root:root:root .lg-t span{color:#3d444b!important}html:root:root:root .lg-t b{color:#15181c!important}
+
+/* Компактная фотолента страниц ширины */
+html:root:root:root .width-photo-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px!important;margin-top:24px!important}
+html:root:root:root .width-photo-grid .media-card{min-width:0!important}
+html:root:root:root .width-photo-grid .m-media{aspect-ratio:4/3!important;height:auto!important;overflow:hidden!important;border-radius:10px!important}
+html:root:root:root .width-photo-grid .m-media img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important}
+html:root:root:root .width-photo-grid .m-cap{font-size:12px!important;margin-top:5px!important}
+@media(max-width:720px){html:root:root:root .width-photo-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}}
+
+html:root:root:root .catalog-seo{padding-top:34px!important;padding-bottom:34px!important}
+html:root:root:root .catalog-seo .wrap{max-width:var(--container-max)!important;margin-inline:auto!important}
+html:root:root:root .catalog-seo .h2{max-width:720px!important;margin-bottom:18px!important}
